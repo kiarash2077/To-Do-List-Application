@@ -17,7 +17,12 @@ def remove_task(task_list: list[str]) -> None:
 
 
 def view_tasks(task_list):
-    pass
+    if not task_list:
+        print("The to-do list is empty. Consider adding a new task!")
+    else:
+        print("To-Do List:")
+        for idx, task in enumerate(task_list, start=1):
+            print(f"{idx}. {task}")
 
 
 def main():
@@ -38,6 +43,7 @@ def main():
         elif choice == '3':
             view_tasks(task_list)
         elif choice == '4':
+            print("Exiting the application. Goodbye!")
             break
         else:
             print("Invalid choice.")
