@@ -1,4 +1,4 @@
-git remote add origin <>
+
 def add_task(task_list):
     task = input("Enter the task:")
     task_list.appened(task)
