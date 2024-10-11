@@ -34,7 +34,7 @@ def main():
         print("3. View Tasks")
         print("4. Exit")
         
-        choice = input("Enter your choice: ")
+        choice = input("Enter your choice:").strip().lower()
         
         if choice == '1':
             add_task(task_list)
