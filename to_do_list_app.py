@@ -32,10 +32,8 @@ def main():
         print("1. Add Task")
         print("2. Remove Task")
         print("3. View Tasks")
-        print("4. Exit")
-        
-        choice = input("Enter your choice: ")
-        
+        print("4. Exit")        
+        choice = input("Enter your choice: ")        
         if choice == '1':
             add_task(task_list)
         elif choice == '2':
