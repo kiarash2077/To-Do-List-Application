@@ -1,5 +1,13 @@
 def add_task(task_list):
-    pass
+
+
+    add_your_task = input("Enter the task:    ")
+    task_list.append(add_your_task)
+    print(f"{add_your_task} has been added to the list.")
+
+
+
+
 
 
 def remove_task(task_list: list[str]) -> None:
