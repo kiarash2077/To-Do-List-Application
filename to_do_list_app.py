@@ -1,10 +1,10 @@
 def add_task(task_list):
-
-
-    add_your_task = input("Enter the task:    ")
-    task_list.append(add_your_task)
-    print(f"{add_your_task} has been added to the list.")
-
+    add_your_task = input("Enter the task:    ").strip()
+    if add_your_task:
+        task_list.append(add_your_task)
+        print(f"'{add_your_task}' has been added to the list.")
+    else:
+        print("Invalid input. Task cannot be empty.")
 
 
 
