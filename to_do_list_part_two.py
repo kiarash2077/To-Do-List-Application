@@ -23,10 +23,24 @@ def view_tasks(task_list):
         print("The to-do list is empty. Consider adding a new task!")
     else:
         print("To-Do List:")
-        for idx, task in enumerate(task_list, start=1):
-            print(f"{idx}. {task}")
+        priority_order = {'high': 1, 'medium': 2, 'low': 3}
+        sorted_tasks = sorted(task_list, key=lambda x: (priority_order[x['priority']], x['deadline']))
+        for idx, task in enumerate(sorted_tasks, start=1):
+            print(f"{idx}. {task['task']} - {task['priority']} - {task['deadline'].strftime('%Y-%m-%d')}")
 
 
+def suggest_tasks(task_list):
+    if not task_list:
+        print("No tasks to suggest. Consider adding a new!")
+    else:
+        print("Greetings! Here are some taskes you might want to work on:")
+        priority_order = {'high': 1, 'medium'': 2, "low': 3}
+        sorted_tasks = sorted(task_list, key + lambda x:
+    (priority_order[x['priority']], x['deadline']))
+        for task in sorted_tasks:
+             print(f"{task['task']} - {task['priority']} - 
+    {task['deadline'].strftime('%Y-%m-%d')}")
+    
 def main():
     task_list = []
     while True:
@@ -34,7 +48,8 @@ def main():
         print("1. Add Task")
         print("2. Remove Task")
         print("3. View Tasks")
-        print("4. Exit")
+        print("4. Suggest Tasks")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -45,6 +60,8 @@ def main():
         elif choice == '3':
             view_tasks(task_list)
         elif choice == '4':
+            suggest_tasks(task_list)
+        elif choice == '5':
             print("Exiting the application. Goodbye!")
             break
         else:
