@@ -4,18 +4,22 @@ def add_task(task_list):
     print(f"{add_your_task} has been added to the list.")
 
 
-def remove_task(task_list: list[str]) -> None:
-    task = input("Enter the task to remove: ")
-    if task == "":
+def remove_task(task_list: list[dict[str]]) -> None:
+    task_name = input("Enter the task to remove: ")
+
+    if task_name == "":
         print("Invalid input.")
 
         return
 
-    if task in task_list:
-        task_list.remove(task)
-        print(f"'{task}' has been removed from the list.")
-    else:
-        print(f"No task found '{task}'.")
+    for task in task_list:
+        if task["name"] == task_name:
+            task_list.remove(task)
+            print(f"'{task_name}' has been removed from the list.")
+
+            return
+
+    print(f"No task found '{task_name}'.")
 
 
 def view_tasks(task_list):
