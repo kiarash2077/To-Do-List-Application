@@ -1,7 +1,16 @@
 def add_task(task_list):
-    add_your_task = input("Enter the task:    ")
-    task_list.append(add_your_task)
-    print(f"{add_your_task} has been added to the list.")
+    task = input("Enter the task: ")
+
+    priority = input("Enter the priority(high, medium, low): ")
+    deadline = input("Enter the dead line(YYYY-MM-DD): ")
+
+    if task and priority and deadline:
+        task_list.append({"task":task,"priority":priority,"deadline":deadline})
+
+        print(f"{task} with priority '{priority}' and deadline '{deadline}'has been added to the list.")
+
+    else:
+        print("Enter the your task details.")
 
 
 def remove_task(task_list: list[str]) -> None:
