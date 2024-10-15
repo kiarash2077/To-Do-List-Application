@@ -2,6 +2,11 @@ def add_task(task_list):
     task = input("Enter the task: ")
 
     priority = input("Enter the priority(high, medium, low): ")
+    if priority != "high" or "medium" or "low":
+
+        print("Enter the correct word in high,medium,low")
+        return
+
     deadline = input("Enter the dead line(YYYY-MM-DD): ")
 
     if task and priority and deadline:
