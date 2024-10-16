@@ -29,8 +29,7 @@ def view_tasks(task_list):
         print("To-Do List:")
         sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for idx, task in enumerate(sorted_tasks, start=1):
-            print(f"{idx}. {task['name']} - {task['priority']} - {task['deadline']}")
-
+            print(f"{idx}. {task['name']} - {task['priority']} - {task['deadline']}")        
 def sort_tasks_by_priority_and_deadline(task_list):
     priority_order = {'high': 1, 'medium': 2, 'low': 3}
     return sorted(task_list, key=lambda x: (priority_order.get(x['priority'], 4), x['deadline']))
@@ -42,8 +41,7 @@ def suggest_tasks(task_list):
         print("Good afternoon! Here are some tasks you might want to work on:")
         sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for task in sorted_tasks:
-            print(f"{task['name']} - {task['priority']} - {task['deadline']}")
-            
+            print(f"{task['name']} - {task['priority']} - {task['deadline']}")            
 def main():
     task_list = []
     while True:
