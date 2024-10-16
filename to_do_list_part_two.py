@@ -55,22 +55,21 @@ def view_tasks(task_list):
         print("The to-do list is empty. Consider adding a new task!")
     else:
         print("To-Do List:")
-        priority_order = {'high': 1, 'medium': 2, 'low': 3}
-        sorted_tasks = sorted(task_list, key=lambda x: (priority_order[x['priority']], x['deadline']))
+        sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for idx, task in enumerate(sorted_tasks, start=1):
-            print(f"{idx}. {task['task']} - {task['priority']} - {task['deadline'].strftime('%Y-%m-%d')}")
-
+            print(f"{idx}. {task['name']} - {task['priority']} - {task['deadline']}")    
+def sort_tasks_by_priority_and_deadline(task_list):
+    priority_order = {'high': 1, 'medium': 2, 'low': 3}
+    return sorted(task_list, key=lambda x: (priority_order.get(x['priority'], 4), x['deadline']))
 
 def suggest_tasks(task_list):
     if not task_list:
-        print("No tasks to suggest. Consider adding a new!")
+        print("No tasks to suggest. Consider adding new tasks!")
     else:
-        print("Greetings! Here are some taskes you might want to work on:")
-        priority_order = {'high': 1, 'medium'': 2, "low': 3}
-        sorted_tasks = sorted(task_list, key=lambda x: (priority_order[x['priority']], x['deadline']))
+        print("Good afternoon! Here are some tasks you might want to work on:")
+        sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for task in sorted_tasks:
-            print(f"{task['task']} - {task['priority']} - {task['deadline'].strftime('%Y-%m-%d')}")
-
+            print(f"{task['name']} - {task['priority']} - {task['deadline']}")
 def main():
     task_list = []
     while True:
