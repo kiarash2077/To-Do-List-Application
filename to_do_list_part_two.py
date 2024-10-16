@@ -29,7 +29,7 @@ def view_tasks(task_list):
         print("To-Do List:")
         sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for idx, task in enumerate(sorted_tasks, start=1):
-            print(f"{idx}. {task['task']} - {task['priority']} - {task['deadline']}")
+            print(f"{idx}. {task['name']} - {task['priority']} - {task['deadline']}")
 
 def sort_tasks_by_priority_and_deadline(task_list):
     priority_order = {'high': 1, 'medium': 2, 'low': 3}
