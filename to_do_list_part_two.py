@@ -39,12 +39,10 @@ def suggest_tasks(task_list):
     else:
         print("Greetings! Here are some taskes you might want to work on:")
         priority_order = {'high': 1, 'medium'': 2, "low': 3}
-        sorted_tasks = sorted(task_list, key + lambda x:
-    (priority_order[x['priority']], x['deadline']))
+        sorted_tasks = sorted(task_list, key=lambda x: (priority_order[x['priority']], x['deadline']))
         for task in sorted_tasks:
-             print(f"{task['task']} - {task['priority']} - 
-    {task['deadline'].strftime('%Y-%m-%d')}")
-    
+            print(f"{task['task']} - {task['priority']} - {task['deadline'].strftime('%Y-%m-%d')}")
+
 def main():
     task_list = []
     while True:
