@@ -42,7 +42,7 @@ def suggest_tasks(task_list):
         print("Good afternoon! Here are some tasks you might want to work on:")
         sorted_tasks = sort_tasks_by_priority_and_deadline(task_list)
         for task in sorted_tasks:
-            print(f"{task['task']} - {task['priority']} - {task['deadline']}")
+            print(f"{task['name']} - {task['priority']} - {task['deadline']}")
             
 def main():
     task_list = []
