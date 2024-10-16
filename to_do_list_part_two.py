@@ -1,18 +1,32 @@
+import re
+
+
+def is_valid_date_format(date_str):
+
+    pattern = r'^\d{4}-\d{2}-\d{2}$'
+
+    return bool(re.match(pattern, date_str))
+
+
 def add_task(task_list):
-    task = input("Enter the task: ")
+    name = input("Enter the task: ")
 
     priority = input("Enter the priority(high, medium, low): ")
-    if priority != "high" or "medium" or "low":
-
-        print("Enter the correct word in high,medium,low")
+    if priority not in ["high", "medium", "low"]:
+        print("Enter the correct word in high, medium, low")
         return
 
-    deadline = input("Enter the dead line(YYYY-MM-DD): ")
+    deadline = input("Enter the deadline (YYYY-MM-DD): ")
 
-    if task and priority and deadline:
-        task_list.append({"task":task,"priority":priority,"deadline":deadline})
+    if not is_valid_date_format(deadline):
 
-        print(f"{task} with priority '{priority}' and deadline '{deadline}'has been added to the list.")
+        print("Please enter the deadline in the correct format (YYYY-MM-DD).")
+        return
+
+    if name and priority and deadline:
+        task_list.append({"name":name, "priority":priority, "deadline":deadline})
+
+        print(f"{name} with priority '{priority}' and deadline '{deadline}'has been added to the list.")
 
     else:
         print("Enter the your task details.")
